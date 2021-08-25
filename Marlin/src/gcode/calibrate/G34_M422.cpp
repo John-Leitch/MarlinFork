@@ -113,7 +113,7 @@ void GcodeSuite::G34() {
       }
 
       const float z_auto_align_accuracy = parser.floatval('T', Z_STEPPER_ALIGN_ACC);
-      if (!WITHIN(z_auto_align_accuracy, 0.01f, 1.0f)) {
+      if (!WITHIN(z_auto_align_accuracy, 0.001f, 1.0f)) {
         SERIAL_ECHOLNPGM("?(T)arget accuracy out of bounds (0.01-1.0).");
         break;
       }

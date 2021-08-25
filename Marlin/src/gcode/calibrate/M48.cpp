@@ -119,15 +119,15 @@ void GcodeSuite::M48() {
 
   auto dev_report = [](const bool verbose, const_float_t mean, const_float_t sigma, const_float_t min, const_float_t max, const bool final=false) {
     if (verbose) {
-      SERIAL_ECHOPAIR_F("Mean: ", mean, 6);
-      if (!final) SERIAL_ECHOPAIR_F(" Sigma: ", sigma, 6);
-      SERIAL_ECHOPAIR_F(" Min: ", min, 3);
-      SERIAL_ECHOPAIR_F(" Max: ", max, 3);
-      SERIAL_ECHOPAIR_F(" Range: ", max-min, 3);
+      SERIAL_ECHOPAIR_F("Mean: ", mean, 8);
+      if (!final) SERIAL_ECHOPAIR_F(" Sigma: ", sigma, 8);
+      SERIAL_ECHOPAIR_F(" Min: ", min, 8);
+      SERIAL_ECHOPAIR_F(" Max: ", max, 8);
+      SERIAL_ECHOPAIR_F(" Range: ", max-min, 8);
       if (final) SERIAL_EOL();
     }
     if (final) {
-      SERIAL_ECHOLNPAIR_F("Standard Deviation: ", sigma, 6);
+      SERIAL_ECHOLNPAIR_F("Standard Deviation: ", sigma, 8);
       SERIAL_EOL();
     }
   };
@@ -242,7 +242,7 @@ void GcodeSuite::M48() {
       if (verbose_level > 1) {
         SERIAL_ECHO(n + 1);
         SERIAL_ECHOPAIR(" of ", n_samples);
-        SERIAL_ECHOPAIR_F(": z: ", pz, 3);
+        SERIAL_ECHOPAIR_F(": z: ", pz, 8);
         SERIAL_CHAR(' ');
         dev_report(verbose_level > 2, mean, sigma, min, max);
         SERIAL_EOL();
