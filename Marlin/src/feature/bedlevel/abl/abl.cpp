@@ -136,7 +136,7 @@ void extrapolate_unprobed_bed_level() {
 
 void print_bilinear_leveling_grid() {
   SERIAL_ECHOLNPGM("Bilinear Leveling Grid:");
-  print_2d_array(GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y, 3,
+  print_2d_array(GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y, 8,
     [](const uint8_t ix, const uint8_t iy) { return z_values[ix][iy]; }
   );
 }
